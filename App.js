@@ -24,7 +24,7 @@ class App extends React.Component {
           animationInTiming={900}>
 
           <View style={Styles.modalView}>
-            <ScrollView contentContainerStyle={Styles.scrollView}>
+          
               <View>
                 <View style={Styles.closeContainer}>
 
@@ -37,6 +37,7 @@ class App extends React.Component {
                 </View>
                 <Text style={Styles.blindsHeader}>Blinds Structure</Text>
               </View>
+              
               <View style={Styles.blackPadding}>
                 <View style={[Styles.row, Styles.headerRow]}>
 
@@ -52,7 +53,9 @@ class App extends React.Component {
                     <Text style={[Styles.columnHeader, Styles.BlindAlign]}>Blinds</Text>
                   </View>
                 </View>
-
+                </View>
+                <ScrollView contentContainerStyle={Styles.scrollView}>
+                <View style={Styles.blackPadding}>
                 {levels.map((level, index) => (
                   <View key={index} style={[Styles.row, index % 2 === 0 ? Styles.rowEven : Styles.rowOdd]}>
 

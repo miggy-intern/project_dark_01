@@ -23,12 +23,12 @@ const Styles = StyleSheet.create({
     backgroundColor: '#131928',
     position: 'absolute',
     top: '25%',
-    justifyContent: 'center', // Center content vertically
+    justifyContent: 'center', 
     paddingBottom: 20,
     left: '5%',
     borderRadius: 10,
-    height: '60%', // Set height to 50% of the screen height
-    width: '90%', // Set width to 80% of the screen width
+    height: '60%', 
+    width: '90%', 
   },
   
   
