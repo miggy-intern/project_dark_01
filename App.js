@@ -37,7 +37,7 @@ class App extends React.Component {
                 </View>
                 <Text style={Styles.blindsHeader}>Blinds Structure</Text>
               </View>
-              <View style = {Styles.blackPadding}>
+              <View style={Styles.blackPadding}>
                 <View style={[Styles.row, Styles.headerRow]}>
 
                   <View style={[Styles.column, Styles.headerColumn]}>
@@ -52,7 +52,7 @@ class App extends React.Component {
                     <Text style={[Styles.columnHeader, Styles.BlindAlign]}>Blinds</Text>
                   </View>
                 </View>
-                
+
                 {levels.map((level, index) => (
                   <View key={index} style={[Styles.row, index % 2 === 0 ? Styles.rowEven : Styles.rowOdd]}>
 
@@ -65,8 +65,9 @@ class App extends React.Component {
                     </View>
 
                     <View style={[Styles.column, Styles.dataColumn]}>
-                      <Text style={Styles.BlindAlign}>{blindValues[index]}</Text>
+                      <Text style={Styles.BlindAlign} numberOfLines={1}>{blindValues[index]}</Text>
                     </View>
+
                   </View>
                 ))}
               </View>

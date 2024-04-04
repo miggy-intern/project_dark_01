@@ -1,4 +1,4 @@
-export const ante = 15;
+export const ante = 13;
 export const defaultTime = '3:00';
 let small_blind = 1;
 let big_blind = 2;

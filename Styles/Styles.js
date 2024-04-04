@@ -8,45 +8,55 @@ const Styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#1b2b1c',
+    backgroundColor: '#013126',
     justifyContent: 'center',
     alignItems: 'center'
+
   },
 
   container2: {
     flex: 1,
   },
 
+
   modalView: {
-    backgroundColor: '#212730',
-    margin: 30,
-    padding: 1,
+    backgroundColor: '#131928',
+    position: 'absolute',
+    top: '25%',
+    justifyContent: 'center', // Center content vertically
+    paddingBottom: 20,
+    left: '5%',
     borderRadius: 10,
-    flex: 1
+    height: '60%', // Set height to 50% of the screen height
+    width: '90%', // Set width to 80% of the screen width
   },
+  
+  
+  
   scrollView: {
-    paddingVertical: 1,
+    padding: 1,
   },
 
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: 'red'
   },
 
   rowEven: {
-    backgroundColor: '#333c4a',
+    backgroundColor: '#2e344a',
   },
   
   rowOdd: {
-    backgroundColor: '#212730',
+    backgroundColor: '#282d40',
   },
   column: {
     flex: 1,
     paddingVertical: 10,
   },
   headerColumn: {
-    borderBottomColor: 'black',
+    borderBottomColor: '#101523',
   },
   dataColumn: {
     borderBottomColor: '#CBC9D0',
@@ -58,50 +68,50 @@ const Styles = StyleSheet.create({
     color: 'black',
   },
   TimeAlign: {
-    textAlign: 'center',
-    fontSize: 16,
-    color: '#cccccc'
+    textAlign: 'left',
+    fontSize: 12,
+    color: '#81869b'
   },
   LevelAlign: {
     textAlign: 'left',
-    fontSize: 16,
-    color: '#cccccc',
-    paddingHorizontal: 30,
+    fontSize: 12,
+    color: '#81869b',
+    paddingHorizontal: 10,
   },
   BlindAlign: {
-    textAlign: 'right',
-    fontSize: 16,
-    color: '#cccccc',
-    paddingHorizontal: 30,
+    textAlign: 'left',
+    fontSize: 12,
+    color: '#81869b',
+    flex: 1, 
+    width: 80, 
+    paddingHorizontal: 10,
   },
+  
   backgroundWhite: {
     backgroundColor: '#333c4a',
 
   },
   headerRow:{
-    backgroundColor: 'black'
+    backgroundColor: '#101523'
   },
 
   blindsHeader: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 20,
     color: 'white',
     paddingVertical: 20
   },
 
   closeContainer: {
     position: 'absolute',
-    top: 10,
-    right: 30,
+    top: 7, 
+    right: 5,
     zIndex: 1,
   },
   closeButton: {
     fontSize: 30,
     fontWeight: 'bold',
     color: 'red',
-  },
-
-  closeButton: {
     backgroundColor: 'transparent',
     borderRadius: 20,
     padding: 10,
@@ -113,8 +123,8 @@ const Styles = StyleSheet.create({
   },
 
   blackPadding: {
-    paddingHorizontal: 30,
-    paddingBottom: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 4,
   }
 });
 
