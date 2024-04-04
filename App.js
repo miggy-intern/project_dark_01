@@ -1,112 +1,81 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { View, Text, Button, Modal, ScrollView, TouchableOpacity } from 'react-native';
+import Styles from './Styles/Styles';
+import { defaultTime, blindValues, levels } from './Const/Constants';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      show: false
+    }
+  }
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+  render() {
+    return (
+      <View style={Styles.container}>
+        <Text style={Styles.normalText}>Project 3: Pop Up </Text>
+        <Button title="Show Blinds Structure" onPress={() => { this.setState({ show: true }) }} />
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+        <Modal
+          transparent={true}
+          visible={this.state.show}
+          animationType="fade"
+          animationInTiming={900}>
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+          <View style={Styles.modalView}>
+            <ScrollView contentContainerStyle={Styles.scrollView}>
+              <View>
+                <View style={Styles.closeContainer}>
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+                  <TouchableOpacity onPress={() => { this.setState({ show: false }) }}>
+                    <View style={Styles.closeButton}>
+                      <Text style={Styles.closeButtonText}>X</Text>
+                    </View>
+                  </TouchableOpacity>
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+                </View>
+                <Text style={Styles.blindsHeader}>Blinds Structure</Text>
+              </View>
+              <View style = {Styles.blackPadding}>
+                <View style={[Styles.row, Styles.headerRow]}>
+
+                  <View style={[Styles.column, Styles.headerColumn]}>
+                    <Text style={[Styles.columnHeader, Styles.LevelAlign]}>Level</Text>
+                  </View>
+
+                  <View style={[Styles.column, Styles.headerColumn]}>
+                    <Text style={[Styles.columnHeader, Styles.TimeAlign]}>Time</Text>
+                  </View>
+
+                  <View style={[Styles.column, Styles.headerColumn]}>
+                    <Text style={[Styles.columnHeader, Styles.BlindAlign]}>Blinds</Text>
+                  </View>
+                </View>
+                
+                {levels.map((level, index) => (
+                  <View key={index} style={[Styles.row, index % 2 === 0 ? Styles.rowEven : Styles.rowOdd]}>
+
+                    <View style={[Styles.column, Styles.dataColumn]}>
+                      <Text style={Styles.LevelAlign}>{`${level}`}</Text>
+                    </View>
+
+                    <View style={[Styles.column, Styles.dataColumn]}>
+                      <Text style={Styles.TimeAlign}>{`${(level - 1) * parseInt(defaultTime, 10)}:00`}</Text>
+                    </View>
+
+                    <View style={[Styles.column, Styles.dataColumn]}>
+                      <Text style={Styles.BlindAlign}>{blindValues[index]}</Text>
+                    </View>
+                  </View>
+                ))}
+              </View>
+            </ScrollView>
+          </View>
+        </Modal>
+      </View>
+    );
+  }
+}
 
 export default App;
